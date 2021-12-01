@@ -21,7 +21,6 @@ module.exports = {
                 try{
                   const url = info['url']
                   const explanation = info['explanation']
-                  console.log(url);
                   const embed = new MessageEmbed()
                     .setColor(randomColor())
                     .setTitle('NASA APOD')
