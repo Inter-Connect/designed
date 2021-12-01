@@ -4,6 +4,10 @@ const fetch = require("node-fetch")
 const { MessageEmbed } = require('discord.js');
 var randomColor = require('randomcolor')
 
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('apod')
@@ -24,7 +28,7 @@ module.exports = {
                     .setDescription(explanation)
                     .setImage(url)
                     .setTimestamp()
-
+                  await sleep(3000)
                   return interaction.editReply({ embeds: [embed]})
                 }
                 catch(err){
