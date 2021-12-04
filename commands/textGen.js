@@ -11,8 +11,8 @@ function sleep(ms) {
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('textgen')
-		.setDescription('gets your text generation!')
-        .addStringOption(option => option.setName('input').setDescription('Enter a string').setRequired(true)),
+		.setDescription('Generate text based on a prompt using an AI')
+        .addStringOption(option => option.setName('input').setDescription('Enter a prompt').setRequired(true)),
 	async execute(interaction) {
         await interaction.deferReply();
         const text = interaction.options.getString('input');

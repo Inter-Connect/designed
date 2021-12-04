@@ -17,6 +17,7 @@ client.once('ready', () => {
 });
 
 client.on('interactionCreate', async interaction => {
+	client.user.setActivity(`in ${client.guilds.cache.size} servers`);
 	if (!interaction.isCommand()) return;
 
 	const command = client.commands.get(interaction.commandName);
