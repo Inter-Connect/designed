@@ -3,6 +3,8 @@ const { MessageEmbed } = require('discord.js')
 const { getText } = require('../services/ai.js')
 const { apiKey } = require('../config.json');
 const randomColor = require('randomcolor');
+var Filter = require('swearzh'),
+filter = new Filter();
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -16,11 +18,15 @@ module.exports = {
 	async execute(interaction) {
         await interaction.deferReply();
         const text = interaction.options.getString('input');
-		const textReturn = await getText(text, apiKey)
+		var textReturn = await getText(text, apiKey)
+        textReturn = textReturn  + '\n\n *Text generated from https://deepai.org/machine-learning-model/text-generator*'
+        if(filter.isProfane(text)) {
+            textReturn = "Unfortunatly, this text was deemed innapropriate, and has been removed."
+        }
         const result = new MessageEmbed()
             .setColor(randomColor())
             .setTitle('Your result')
-            .setDescription(textReturn + '\n\n *Text generated from https://deepai.org/machine-learning-model/text-generator*')
+            .setDescription(textReturn)
             .setTimestamp()
         await sleep(3000)
         await interaction.editReply({embeds: [result]});
