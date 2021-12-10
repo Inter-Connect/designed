@@ -3,8 +3,11 @@ const { MessageEmbed } = require('discord.js')
 const { getText } = require('../services/ai.js')
 const { apiKey } = require('../config.json');
 const randomColor = require('randomcolor');
-var Filter = require('swearzh'),
-filter = new Filter();
+const Filter = require('swearzh')
+    filter = new Filter({
+        englishList: ['naked']
+    })
+
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
