@@ -2,8 +2,12 @@
   "dependencies": {
     "@discordjs/builders": "^0.8.2",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.24.0",
+    "canvas": "^2.8.0",
     "color-convert": "^2.0.1",
     "color-namer": "^1.4.0",
+    "color-scheme": "^1.0.1",
+    "deepai": "^0.0.3",
     "discord-api-types": "^0.24.0",
     "discord.js": "^13.3.1",
     "fs": "^0.0.1-security",
