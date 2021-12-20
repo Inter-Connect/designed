@@ -1,6 +1,6 @@
 var ColorScheme = require('color-scheme');
 const { createCanvas, loadImage } = require('canvas')
-const { MessageAttachment, MessageEmbed } = require('discord.js')
+const { MessageAttachment, MessageEmbed, MessageActionRow, MessageButton } = require('discord.js')
 var randomColor = require('randomcolor')
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
@@ -38,6 +38,15 @@ module.exports = {
             .setDescription('#' + colors.toString().replace(new RegExp(',', 'g'), ' - #'))
             .setColor(randomColor())
             .setImage('attachment://colors.png')
-        interaction.reply({ embeds: [embed], files: [attachment] });
+
+        const row = new MessageActionRow()
+		.addComponents(
+			new MessageButton()
+				.setLabel('Help with this')
+				.setStyle('LINK')
+                .setURL('https://scheme.designedbot.com'),
+        );
+
+        interaction.reply({ embeds: [embed], files: [attachment], components: [row] });
 	},
 };
