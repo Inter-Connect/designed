@@ -7,7 +7,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('scheme')
-		.setDescription('Replies with Pong!')
+		.setDescription('Generates a color scheme!')
         .addIntegerOption(option => option.setName('hue').setDescription('The hue of the starting color. 0 - 360').setRequired(true))
         .addStringOption(option => option.setName('type').setDescription('The type of scheme').setRequired(true).addChoice('Monochromatic- 4 colors', 'mono').addChoice('Contrast- 8 Colors', 'contrast').addChoice('Triade - 12 colors', 'triade').addChoice('Tetrade - 16 Colors', 'tetrade').addChoice('Analogic - 12 colors', 'analogic'))
         .addStringOption(option => option.setName('variation').setDescription('Alter the produced colors').setRequired(true).addChoice('Regular- No Change.', 'default').addChoice('Pastel- HSV high value and low-intermediate saturation.', 'pastel').addChoice('Soft- darker pastel colors.', 'soft').addChoice('Light- Very light, almost washed-out colors.', 'light').addChoice('Hard- Deeper, very saturated colors.', 'hard').addChoice('Pale- Colors with more gray; less saturated.', 'pale')),
